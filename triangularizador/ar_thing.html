@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple WebAR Viewer</title>
+
+    <!-- Import the Google Model Viewer component library -->
+    <script type="module" src="https://googleapis.com"></script>
+
+    <style>
+        /* Make the viewer take up the entire mobile screen */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Custom style for the "View in AR" button */
+        #ar-button {
+            background-color: #ffffff;
+            border-radius: 4px;
+            border: none;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+      The AR component. 
+      - REPLACE 'src' with the direct link to your online .glb file.
+      - 'ios-src' is optional but recommended if you also have a .usdz file for iPhones.
+    -->
+     <model-viewer 
+        src="model.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        touch-action="pan-y"
+        shadow-intensity="1" 
+        alt="My 3D AR Model">
+        
+        <button slot="ar-button" id="ar-button">
+            👋 Activate AR Mode
+        </button>
+        
+    </model-viewer>
+
+</body>
+
+</html>
