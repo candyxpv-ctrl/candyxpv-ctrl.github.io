@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple WebAR Viewer</title>
 
+    <!-- Import the Google Model Viewer component library -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
     <style>
@@ -46,13 +47,24 @@
 
 <body>
 
-    <model-viewer src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y"
-        shadow-intensity="1" alt="My 3D AR Model">
-
+    <!-- 
+      The AR component. 
+      - REPLACE 'src' with the direct link to your online .glb file.
+      - 'ios-src' is optional but recommended if you also have a .usdz file for iPhones.
+    -->
+     <model-viewer 
+        src="model.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        touch-action="pan-y"
+        shadow-intensity="1" 
+        alt="My 3D AR Model">
+        
         <button slot="ar-button" id="ar-button">
             👋 Activate AR Mode
         </button>
-
+        
     </model-viewer>
 
 </body>
